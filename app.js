@@ -40,7 +40,11 @@ main().then(()=>{
 .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(MongodbAtlas_URL);
+  await mongoose.connect(MongodbAtlas_URL,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: true
+  });
 }  
 
 const store = MongoStore.create({
