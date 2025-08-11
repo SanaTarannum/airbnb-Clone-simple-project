@@ -120,11 +120,9 @@ app.use((err,req,res,next)=>{
   res.status(statusCode).render("Error", {message});
 });
 
-app.listen(PORT,()=>{
-    console.log(`Server Running on ${PORT}`);
-});
 
 
 
+module.exports = app;
 
 
