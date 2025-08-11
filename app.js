@@ -125,9 +125,16 @@ app.use((err,req,res,next)=>{
   res.status(statusCode).render("Error", {message});
 });
 
+if (require.main === module) {
+    const PORT = process.env.PORT || 8080;
+    app.listen(PORT, () => {
+        console.log(`🚀 Server running on http://localhost:${PORT}`);
+    });
+} else {
+    module.exports = app; // For Vercel
+}
 
 
 
-module.exports = app;
 
 

@@ -1,11 +1,18 @@
 <% layout("./layouts/boilerplate") -%>
 <section class="bg-gray-50 dark:bg-gray-900">
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-       <a href="/listings">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" 
-         alt="Airbnb Logo" 
-         class="h-8 w-auto mb-8" />
-  </a>
+        <a href="/listings">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="h-10 w-auto mb-4">
+    <defs>
+      <linearGradient id="travelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#4facfe; stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#00f2fe; stop-opacity:1" />
+      </linearGradient>
+    </defs>
+    <circle cx="32" cy="32" r="30" fill="url(#travelGradient)" />
+    <path d="M20 34l10-2-8-20 6 1 8 19 14 1c1 0 2 1 2 2s-1 2-2 2l-14 1-8 19-6 1 8-20-10-2z" fill="white"/>
+  </svg>
+</a>
       <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">

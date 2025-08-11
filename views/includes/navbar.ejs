@@ -5,10 +5,18 @@
     <!-- Left: Logo -->
     <div class="flex items-center gap-2">
       <a href="/listings">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" 
-             alt="Airbnb Logo" 
-             class="h-8 w-auto" />
-      </a>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="h-10 w-auto">
+    <defs>
+      <linearGradient id="travelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#4facfe; stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#00f2fe; stop-opacity:1" />
+      </linearGradient>
+    </defs>
+    <circle cx="32" cy="32" r="30" fill="url(#travelGradient)" />
+    <path d="M20 34l10-2-8-20 6 1 8 19 14 1c1 0 2 1 2 2s-1 2-2 2l-14 1-8 19-6 1 8-20-10-2z" fill="white"/>
+  </svg>
+</a>
+
     </div>
 
    <form action="/listings/search" method="GET" class="w-full md:w-auto mt-4 md:mt-0 flex justify-center md:justify-center order-3 md:order-2 novalidate">
@@ -46,7 +54,7 @@
     <!-- Right: Links -->
     <div class="hidden md:flex items-center gap-6 order-3 md:order-3">
       <a href="/listings/new" class="px-4 py-2 rounded-full border border-gray-300 hover:border-pink-600 hover:text-pink-600 transition-all duration-300">
-        Airbnb your home
+      Add  Your New Listing
       </a>
 
       <% if (!currUser) { %>
