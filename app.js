@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const app = express();
-const PORT = 8080;
 const path = require("path");
 const mongoose = require('mongoose');
 // const Mongodb_URL = 'mongodb://127.0.0.1:27017/Project';
