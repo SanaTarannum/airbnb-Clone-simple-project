@@ -1,0 +1,38 @@
+
+<% if(success && success.length){ %>
+  <div  id="flash-success" class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
+    <div class="bg-green-100 text-green-800 border border-green-300 px-6 py-3 rounded shadow-lg w-fit">
+      <strong class="font-bold">Success!</strong>
+      <span class="block sm:inline"><%= success %></span>
+    </div>
+  </div>
+<% } %>
+
+
+<% if(error && error.length){ %>
+  <div  id="flash-error"  class="flex justify-center">
+    <div class="bg-red-100 text-red-800 border border-red-300 px-4 py-3 rounded relative mb-4 text-center max-w-xl w-full">
+      <strong class="font-bold">Error! </strong>
+      <span class="block sm:inline"><%= error %></span>
+    </div>
+  </div>
+<% } %>
+
+
+<script>
+  // Success flash message hide after 3 seconds
+  const successFlash = document.getElementById("flash-success");
+  if(successFlash){
+    setTimeout(() => {
+      successFlash.remove();
+    }, 4000); // 3 seconds
+  }
+
+  // Error flash message hide after 3 seconds
+  const errorFlash = document.getElementById("flash-error");
+  if(errorFlash){
+    setTimeout(() => {
+      errorFlash.remove();
+    }, 6000); // 3 seconds
+  }
+</script>

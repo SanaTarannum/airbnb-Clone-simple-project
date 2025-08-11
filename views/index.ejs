@@ -1,0 +1,182 @@
+ 
+<% layout("./layouts/boilerplate") -%>
+<style>
+  #filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+  }
+
+  .filter {
+    text-align: center;
+    opacity: 0.7;
+    transition: all 0.3s ease-in-out;
+    font-size: 0.85rem;
+    color: #333;
+  }
+
+  .filter:hover {
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+
+  .filter i {
+    font-size: 1.3rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    #filters {
+      gap: 1rem;
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding: 1rem 0.5rem;
+    }
+
+    .filter {
+      flex: 0 0 auto;
+    }
+  }
+</style>
+
+<div id="filters">
+  <a href="/listings?category=Trending" class="filter">
+    <i class="fa-solid fa-fire"></i><p>Trending</p>
+  </a>
+  <a href="/listings?category=Room" class="filter">
+    <i class="fa-solid fa-bed"></i><p>Room</p>
+  </a>
+  <a href="/listings?category=Iconic Cities" class="filter">
+    <i class="fa-solid fa-mountain-city"></i><p>Iconic Cities</p>
+  </a>
+  <a href="/listings?category=Mountains" class="filter">
+    <i class="fa-solid fa-mountain"></i><p>Mountains</p>
+  </a>
+  <a href="/listings?category=Castles" class="filter">
+    <i class="fab fa-fort-awesome"></i><p>Castles</p>
+  </a>
+  <a href="/listings?category=Amazing Pools" class="filter">
+    <i class="fas fa-person-swimming"></i><p>Amazing Pools</p>
+  </a>
+  <a href="/listings?category=Camping" class="filter">
+    <i class="fas fa-campground"></i><p>Camping</p>
+  </a>
+  <a href="/listings?category=Farms" class="filter">
+    <i class="fas fa-cow"></i><p>Farms</p>
+  </a>
+  <a href="/listings?category=Arctic" class="filter">
+    <i class="fas fa-snowflake"></i><p>Arctic</p>
+  </a>
+  <a href="/listings?category=Surfing" class="filter">
+    <i class="fas fa-water"></i><p>Surfing</p>
+  </a>
+  <a href="/listings?category=OMG" class="filter">
+    <i class="fas fa-bolt"></i><p>OMG</p>
+  </a>
+  <a href="/listings?category=Cabin" class="filter">
+    <i class="fas fa-house-chimney"></i><p>Cabin</p>
+  </a>
+  <a href="/listings?category=Design" class="filter">
+    <i class="fas fa-palette"></i><p>Design</p>
+  </a>
+  <a href="/listings?category=Beach" class="filter">
+    <i class="fas fa-umbrella-beach"></i><p>Beach</p>
+  </a>
+  <a href="/listings?category=Lakefront" class="filter">
+    <i class="fas fa-house-flood-water"></i><p>Lakefront</p>
+  </a>
+  <a href="/listings?category=amazingviews" class="filter">
+    <i class="fas fa-binoculars"></i><p>Amazing views</p>
+  </a>
+
+  
+ <!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+  <input type="checkbox" id="gst-toggle" class="sr-only peer">
+  <div class="w-14 h-8 bg-gray-300 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:bg-blue-600 transition-colors duration-300"></div>
+  <div class="absolute left-0.5 top-0.5 bg-white w-7 h-7 rounded-full shadow-md transform transition-transform duration-300 peer-checked:translate-x-6"></div>
+  <span class="ml-3 text-sm font-semibold text-gray-700">Feature</span>
+</label>
+
+</div>
+
+<!-- ✅ Responsive Grid Layout -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 mt-2">
+  <% for(let listing of allListings){ %>
+    <a href="/listings/<%= listing._id %>" class="group">
+  <div class="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white relative">
+    
+    <!-- Image -->
+    <img class="w-full h-48 object-cover" src="<%= listing.image.url %>" alt="Card Image">
+
+    <!-- Hover Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center opacity-0 group-hover:opacity-100 transition duration-300">
+      <h2 class="text-white text-lg font-bold"><%= listing.title %></h2>
+    </div>
+
+    <!-- Card Content -->
+    <div class="p-5">
+      <!-- Title -->
+      <h2 class="text-lg font-bold text-gray-800 mb-1">
+        <%= listing.title %>
+      </h2>
+
+      <!-- Location -->
+      <div class="flex items-center text-gray-600 text-sm mb-2">
+        <svg class="w-4 h-4 text-blue-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M5.05 3.05a7 7 0 119.9 9.9L10 18.9l-4.95-5.95a7 7 0 010-9.9zM10 11a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+        </svg>
+        <%= listing.location %>
+      </div>
+
+      <!-- Rating -->
+      <!-- <div class="flex items-center space-x-2 mb-2">
+        Star Icon -->
+        <!-- <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.09 3.36a1 1 0 00.95.69h3.537c.969 0 1.371 1.24.588 1.81l-2.86 2.078a1 1 0 00-.364 1.118l1.09 3.36c.3.921-.755 1.688-1.54 1.118l-2.86-2.078a1 1 0 00-1.175 0l-2.86 2.078c-.785.57-1.84-.197-1.54-1.118l1.09-3.36a1 1 0 00-.364-1.118L2.98 8.787c-.783-.57-.38-1.81.588-1.81h3.537a1 1 0 00.95-.69l1.09-3.36z"/>
+        </svg> --> 
+
+        <!-- Rating Badge -->
+        <!-- <span class="text-green-600 font-medium bg-green-100 px-2 py-0.5 rounded-full text-sm">
+          <%= listing.rating ? listing.rating.toFixed(1) : "N/A" %>
+        </span>
+      </div> -->
+
+      <!-- Price -->
+      <p class="text-sm mt-1">
+        <span class="font-semibold text-green-600">&#8377;<%= listing.price ? Number(listing.price).toLocaleString("en-IN") : "N/A" %></span>
+        /night
+        <i class="text-sm text-gray-600 font-medium ml-3 tax-switch">+18% GST</i>
+      </p>
+    </div>
+
+  </div>
+</a>
+
+    
+  <% } %>
+</div>
+ <script src="https://cdn.tailwindcss.com"></script>
+  <script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    const switchInput = document.querySelector('#gst-toggle'); // input element
+    const taxTexts = document.querySelectorAll('.tax-switch'); // all matching <i> elements
+
+    // Hide all initially
+    taxTexts.forEach(t => t.style.display = "none");
+
+    // Switch change event
+    switchInput.addEventListener('change', function () {
+      taxTexts.forEach(t => {
+        t.style.display = this.checked ? "inline" : "none";
+      });
+    });
+  });
+</script>
+
+
+

@@ -1,0 +1,116 @@
+<% layout("./layouts/boilerplate") -%>
+
+<div class="max-w-4xl w-full mx-auto bg-white p-6 sm:p-8 rounded-xl shadow-md space-y-6 my-10">
+  <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 text-center">
+    📝 Edit Your Listing
+  </h2>
+
+  <!-- FORM -->
+  <form action="/listings/<%= listing._id %>?_method=put" method="POST" novalidate id="listingform" class="space-y-5" enctype="multipart/form-data">
+
+    <!-- Title -->
+    <div>
+      <label class="block text-gray-700 text-base mb-1">Title</label>
+      <input 
+        type="text" 
+        name="Listing[title]" 
+         id="title"
+        value="<%= listing.title %>"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
+        required
+      >
+       <p id="titleError" class="text-red-500 text-sm mt-1 hidden">Title is required.</p>
+       <p id="titleSuccess" class="text-green-600 text-sm mt-1 hidden">✅ Looks good!</p>
+    </div>
+
+    <!-- Description -->
+    <div>
+      <label class="block text-gray-700 text-base mb-1">Description</label>
+      <textarea 
+        name="Listing[description]" 
+        id="description"
+        rows="4"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
+        required
+      ><%= listing.description %></textarea>
+
+       <p id="descError" class="text-red-500 text-sm mt-1 hidden">Description is required.</p>
+       <p id="descSuccess" class="text-green-600 text-sm mt-1 hidden">✅ Looks good!</p>
+    </div>
+
+    <!-- Image URL -->
+   <div class="previewImage">
+   <img src="<%= OriginalImage %>"  class="w-full h-64 object-cover rounded-lg mb-4">
+   </div>
+
+    <div>
+      <label class="block text-gray-700 text-base mb-1">Upload New Image</label>
+      <input 
+        type="file" 
+        name="Listing[image]" 
+        placeholder="https://example.com/image.jpg"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
+      >
+    </div>
+
+    <!-- Price & Location -->
+    <div class="flex flex-col sm:flex-row gap-5">
+      <!-- Price -->
+      <div class="w-full sm:w-1/2">
+        <label class="block text-gray-700 text-base mb-1">Price (₹)</label>
+        <input 
+          type="number" 
+          name="Listing[price]" 
+          id="price"
+          value="<%= listing.price %>"
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
+          required
+        >
+        <p id="priceError" class="text-red-500 text-sm mt-1 hidden">Please Provide a valid Price </p>
+       <p id="priceSuccess" class="text-green-600 text-sm mt-1 hidden"> Looks good!</p>
+      </div>
+
+      <!-- Location -->
+      <div class="w-full sm:w-1/2">
+        <label class="block text-gray-700 text-base mb-1">Location</label>
+        <input 
+          type="text" 
+          name="Listing[location]" 
+          id="location"
+          value="<%= listing.location %>"
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
+          required
+        >
+         <p id="locationError" class="text-red-500 text-sm mt-1 hidden">Pleae Provide a valid Location</p>
+         <p id="locationSuccess" class="text-green-600 text-sm mt-1  hidden"> Looks good!</p>
+      </div>  
+    </div>
+
+    <!-- Country -->
+    <div>
+      <label class="block text-gray-700 text-base mb-1">Country</label>
+      <input 
+        type="text" 
+        name="Listing[country]" 
+        id="country"
+        value="<%= listing.country %>"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
+        required
+      >
+        <p id="countryError" class="text-red-500 text-sm mt-1 hidden">Please Provide a valid City</p>
+       <p id="countrySuccess" class="text-green-600 text-sm mt-1 hidden">Looks good!</p>
+    </div>
+
+    <!-- Submit Button -->
+    <div>
+      <button
+        type="submit"
+        class=" bg-red-500 text-white font-semibold  px-6 py-2  rounded-lg hover:bg-red-200 transition duration-300 text-base"
+      >
+        ✅Edit
+      </button>
+    </div>
+
+  </form>
+</div>
+<script src="/javascript/validation.js"></script>

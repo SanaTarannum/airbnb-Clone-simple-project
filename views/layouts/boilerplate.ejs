@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WanderLust</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+ <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+/>
+
+<!-- ✅ Leaflet CSS (no integrity) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<!-- ✅ Leaflet JS (no integrity) -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+ <link rel="icon" type="image/x-icon" href="/favicon.ico"> 
+ <link rel="stylesheet" href="/stylesheets/rating.css">
+
+</head>
+<%- include("../includes/navbar.ejs") %>
+
+
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <main >
+ <%- include("../includes/flash.ejs") %> <%- body -%>  
+  </main>
+<%- include("../includes/footer.ejs") %>
+<script src="/javascript/validation.js"></script>
+<script src="/javascript/reviewVal.js"></script>
+<script  src="/javascript/signupValidation.js"></script>
+<script src="/javascript/loginValidation.js"></script>
+
+</body>
+</html>

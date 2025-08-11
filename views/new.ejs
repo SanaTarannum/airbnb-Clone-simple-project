@@ -1,0 +1,114 @@
+<% layout("./layouts/boilerplate") -%>
+<!-- Wrapper -->
+<form action="/listings" method="post"  novalidate id="listingform" enctype="multipart/form-data">
+  <div class="max-w-4xl w-full mx-auto bg-white p-6 sm:p-8 rounded-xl shadow-md space-y-6 my-10">
+
+    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 text-center">
+      📝 Create New Listing
+    </h2>
+
+    <!-- Title -->
+    <div>
+      <label class="block text-gray-700 text-base mb-1">Title</label>
+      <input 
+        type="text" 
+        name="Listing[title]" 
+        id="title"
+        placeholder="Enter your title"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
+        required
+      >
+       <p id="titleError" class="text-red-500 text-sm mt-1 hidden">Title is required.</p>
+       <p id="titleSuccess" class="text-green-600 text-sm mt-1 hidden">✅ Looks good!</p>
+    </div>
+
+    <!-- Description -->
+    <div>
+      <label class="block text-gray-700 text-base mb-1">Description</label>
+      <textarea 
+        name="Listing[description]" 
+        placeholder="Enter your description"
+        id="description"
+        rows="4"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
+        required
+      ></textarea>
+       <p id="descError" class="text-red-500 text-sm mt-1 hidden">Description is required.</p>
+       <p id="descSuccess" class="text-green-600 text-sm mt-1 hidden">✅ Looks good!</p>
+    </div>
+
+    <!-- Image Link -->
+    <div>
+      <label class="block text-gray-700 text-base mb-1">Image Upload</label>
+      <input 
+        type="file" 
+        name="Listing[image]" 
+        id="image" 
+        placeholder="https://example.com/image.jpg"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
+        required
+        />
+    </div>
+
+    <!-- Price & Location -->
+    <div class="flex flex-col sm:flex-row gap-6">
+      <!-- Price -->
+      <div class="w-full sm:w-1/2">
+        <label class="block text-gray-700 text-base mb-1">Price (₹)</label>
+        <input 
+          type="text" 
+          name="Listing[price]" 
+          id="price"
+          placeholder="Enter price"
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
+          required
+        >
+        <p id="priceError" class="text-red-500 text-sm mt-1 hidden">Please Provide a valid Price </p>
+       <p id="priceSuccess" class="text-green-600 text-sm mt-1 hidden"> Looks good!</p>
+      </div>
+
+      <!-- Location -->
+      <div class="w-full sm:w-1/2">
+        <label class="block text-gray-700 text-base mb-1">Location</label>
+        <input 
+          type="text" 
+          name="Listing[location]" 
+          placeholder="Enter location"
+          id="location"
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
+          required
+        >
+         <p id="locationError" class="text-red-500 text-sm mt-1 hidden">Pleae Provide a valid Location</p>
+         <p id="locationSuccess" class="text-green-600 text-sm mt-1  hidden"> Looks good!</p>
+      </div>
+    </div>
+
+    <!-- Country -->
+    <div>
+      <label class="block text-gray-700 text-base mb-1">Country</label>
+      <input 
+        type="text" 
+        name="Listing[country]" 
+        id="country"
+        placeholder="Enter country"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
+        required
+      >
+       <p id="countryError" class="text-red-500 text-sm mt-1 hidden">Please Provide a valid City</p>
+       <p id="countrySuccess" class="text-green-600 text-sm mt-1 hidden">Looks good!</p>
+    </div>
+
+
+    <!-- Submit Button -->
+    <div>
+      <button
+        type="submit"
+        class="w-full bg-black text-white font-semibold py-3 rounded-lg hover:bg-gray-800 transition duration-300 text-base"
+      >
+        ➕ Add Listing
+      </button>
+    </div>
+  </div>
+</form>
+
+
