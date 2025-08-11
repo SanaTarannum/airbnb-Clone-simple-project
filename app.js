@@ -46,9 +46,10 @@ async function main() {
 const store = MongoStore.create({
 mongoUrl : MongodbAtlas_URL,
   crypto :{
-    secret: process.env.SECRET,
+    secret: process.env.SECRET
+  },
    touchAfter: 24 * 3600, // 24 hours
-}});
+});
 
 store.on("error", ()=>{
 console.log("🔥 Error in MongoStore");
