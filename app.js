@@ -130,7 +130,7 @@ if (require.main === module) {
         console.log(`🚀 Server running on http://localhost:${PORT}`);
     });
 } else {
-    module.exports = app; // For Vercel
+    module.exports = app; // For Ve
 }
 
 
